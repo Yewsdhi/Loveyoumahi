@@ -11,7 +11,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from AarumiMusic import app
-from AarumiMusic.utils.database import is_thumb_on
+from AarumiMusic.utils.database import is_thumb_enabled
 from AarumiMusic.utils.decorators import language
 from config import BANNED_USERS
 
