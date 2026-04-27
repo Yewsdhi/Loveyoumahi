@@ -63,7 +63,7 @@ SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/Misty_supprot_group")
 
 # Vars For API End Pont.
 YTPROXY_URL = getenv("YTPROXY_URL", 'https://tgapi.xbitcode.com') ## xBit Music Endpoint.
-YT_API_KEY = getenv("YT_API_KEY" , 'xbit_93S-NHYcLZr7FzCnWl0i2JnDqhL8xd9H') ## Your API key like: xbit_10000000xx0233 Get from  https://t.me/tgmusic_apibot
+YT_API_KEY = getenv("YT_API_KEY" , '') ## Your API key like: xbit_10000000xx0233 Get from  https://t.me/tgmusic_apibot
 
 
 # ✅ Auto Features
