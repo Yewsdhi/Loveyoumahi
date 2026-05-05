@@ -2,7 +2,7 @@ from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from AarumiMusic import app
 from config import BOT_USERNAME
-from aarumimusic.utils.errors import capture_err
+from AarumiMusic.utils.errors import capture_err
 import httpx 
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
