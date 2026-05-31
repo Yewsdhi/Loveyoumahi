@@ -89,7 +89,7 @@ def stream_markup_timer(_, chat_id, played, dur):
         ],
         [
             InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20"),
-            InlineKeyboardButton(text="ᴄʜᴧᴛ", url=f"https://t.me/misty_update"),
+            InlineKeyboardButton("sᴛᴀᴜs", callback_data="bot_info_data"),
             InlineKeyboardButton(text="𝟤𝟢 s + >", callback_data="seek_forward_20")
         ],
         [
@@ -110,7 +110,7 @@ def stream_markup(_, chat_id):
         ],
         [
             InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20"),
-            InlineKeyboardButton(text="ᴄʜᴧᴛ", url=f"https://t.me/misty_update"),
+            InlineKeyboardButton("sᴛᴀᴛᴜs", callback_data="bot_info_data"),
             InlineKeyboardButton(text="𝟤𝟢 s + >", callback_data="seek_forward_20")
         ],
         [
