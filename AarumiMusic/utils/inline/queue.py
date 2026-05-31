@@ -86,7 +86,7 @@ def aq_markup(_, chat_id):
         ],
         [
             InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton("ʏᴛ-ᴀᴘɪ", callback_data="api_status"),
+            InlineKeyboardButton("ɪɴғᴏ ㋛︎", callback_data="api_status"),
             InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
         ],
         [
