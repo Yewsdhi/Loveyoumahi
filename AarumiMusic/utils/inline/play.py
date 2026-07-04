@@ -90,10 +90,10 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}", style=ButtonStyle.PRIMARY),
         ],
         [
-            InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20", style=ButtonStyle.SECONDARY,
+            InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20", style=ButtonStyle.SECONDARY),
     ),
             InlineKeyboardButton("sᴛᴀᴛᴜs", callback_data="api_status"),
-            InlineKeyboardButton(text="𝟤𝟢 s + >", callback_data="seek_forward_20". style=ButtonStyle.SECONDARY,
+            InlineKeyboardButton(text="𝟤𝟢 s + >", callback_data="seek_forward_20". style=ButtonStyle.SECONDARY),
     ),
         ],
         [
@@ -113,10 +113,10 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}", style=ButtonStyle.PRIMARY),
         ],
         [
-            InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20", style=ButtonStyle.SECONDARY,
+            InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20", style=ButtonStyle.SECONDARY),
     ),
             InlineKeyboardButton("sᴛᴀᴛᴜs", callback_data="api_status"),
-            InlineKeyboardButton(text="𝟤𝟢 s + >", callback_data="seek_forward_20". style=ButtonStyle.SECONDARY,
+            InlineKeyboardButton(text="𝟤𝟢 s + >", callback_data="seek_forward_20". style=ButtonStyle.SECONDARY),
     ),
         ],
         [
