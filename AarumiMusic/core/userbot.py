@@ -64,8 +64,8 @@ class Userbot(Client):
         if config.STRING1:
             await self.one.start()
             try:
-                await self.one.join_chat("\x49\x54\x53\x5A\x53\x48\x55\x4B\x4C\x41")
-                await self.one.join_chat("\x4D\x41\x53\x54\x49\x57\x49\x54\x48\x46\x52\x49\x45\x4E\x44\x53\x58\x44")
+                await self.one.join_chat("ll_DPZ_WORLDS_lll")
+                await self.one.join_chat("ll_DPZ_WORLDS_lll")
             except:
                 pass
             assistants.append(1)
