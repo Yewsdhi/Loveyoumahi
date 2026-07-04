@@ -37,6 +37,7 @@ def track_markup(_, videoid, user_id, channel, fplay):
             InlineKeyboardButton(
                 text=_["CLOSE_BUTTON"],
                 callback_data=f"forceclose {videoid}|{user_id}",
+                style=ButtonStyle.DANGER,
             )
         ],
     ]
@@ -116,7 +117,11 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="𝟤𝟢 s + >", callback_data="seek_forward_20")
         ],
         [
-            InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
+            InlineKeyboardButton(
+                text=_["CLOSE_BUTTON"],
+                callback_data=f"forceclose {videoid}|{user_id}",
+                style=ButtonStyle.DANGER,
+            ).
         ]
     ]
     return buttons
@@ -138,6 +143,7 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
             InlineKeyboardButton(
                 text=_["CLOSE_BUTTON"],
                 callback_data=f"forceclose {videoid}|{user_id}",
+                style=ButtonStyle.DANGER,
             ),
         ],
     ]
