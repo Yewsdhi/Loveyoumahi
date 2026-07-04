@@ -17,6 +17,16 @@ from pyrogram.types import InlineKeyboardButton
 import config
 from AarumiMusic import app
 
+# ── Premium emoji IDs (Emoji_fan37_by_TgEmodziBot pack) ──
+_E_SPARK   = 4958489311726011319   # ✨
+_E_STAR    = 4958714479681471536   # ⭐️
+_E_CROWN   = 4956420911310832630   # 👑
+_E_SUPPORT = 4956475826762679249   # 💬
+_E_BULB    = 4958665796227171144   # 💡
+_E_UPDATE  = 4956214478002717877   # 🔝
+_E_DIAMOND = 4956739572114392015   # 💎
+_E_BELL    = 4956290155326473271   # 🔔
+
 
 def start_panel(_):
     buttons = [
