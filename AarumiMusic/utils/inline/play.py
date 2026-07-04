@@ -27,19 +27,16 @@ def track_markup(_, videoid, user_id, channel, fplay):
             InlineKeyboardButton(
                 text=_["P_B_1"],
                 callback_data=f"MusicStream {videoid}|{user_id}|a|{channel}|{fplay}",
-                style=ButtonStyle.PRIMARY,
             ),
             InlineKeyboardButton(
                 text=_["P_B_2"],
                 callback_data=f"MusicStream {videoid}|{user_id}|v|{channel}|{fplay}",
-                style=ButtonStyle.SUCCESS,
             ),
         ],
         [
             InlineKeyboardButton(
                 text=_["CLOSE_BUTTON"],
                 callback_data=f"forceclose {videoid}|{user_id}",
-                style=ButtonStyle.DANGER,
             )
         ],
     ]
@@ -93,7 +90,7 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
         [
-            InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20").
+            InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20"),
             InlineKeyboardButton("sᴛᴀᴛᴜs", callback_data="api_status"),
             InlineKeyboardButton(text="𝟤𝟢 s + >", callback_data="seek_forward_20")
         ],
@@ -114,7 +111,7 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
         [
-            InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20").
+            InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20"),
             InlineKeyboardButton("sᴛᴀᴛᴜs", callback_data="api_status"),
             InlineKeyboardButton(text="𝟤𝟢 s + >", callback_data="seek_forward_20")
         ],
