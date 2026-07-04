@@ -14,7 +14,6 @@
 
 import math
 from config import SUPPORT_CHAT, OWNER_USERNAME
-from pyrogram.enums import ButtonStyle
 from pyrogram.types import InlineKeyboardButton
 from AarumiMusic import app
 import config
@@ -79,49 +78,19 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(
                 text=f"{played} {bar} {dur}",
                 callback_data="GetTimer",
-                style=ButtonStyle.PRIMARY,
             )
         ],
         [
-[
-    InlineKeyboardButton(
-        text="▷",
-        callback_data=f"ADMIN Resume|{chat_id}",
-    ),
-    InlineKeyboardButton(
-        text="II",
-        callback_data=f"ADMIN Pause|{chat_id}",
-    ),
-    InlineKeyboardButton(
-        text="↻",
-        callback_data=f"ADMIN Replay|{chat_id}",
-    ),
-    InlineKeyboardButton(
-        text="‣‣I",
-        callback_data=f"ADMIN Skip|{chat_id}",
-    ),
-    InlineKeyboardButton(
-        text="▢",
-        callback_data=f"ADMIN Stop|{chat_id}",
-    ),
-],
+            InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(text="↻", callback_data=f"ADMIN Replay|{chat_id}"),
+            InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
+            InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
         [
-            InlineKeyboardButton(
-    text="< - 𝟤𝟢 s",
-    callback_data="seek_backward_20",
-    style=ButtonStyle.SECONDARY,
-),
-InlineKeyboardButton(
-    text="sᴛᴀᴛᴜs",
-    callback_data="api_status",
-    style=ButtonStyle.PRIMARY,
-),
-InlineKeyboardButton(
-    text="𝟤𝟢 s + >",
-    callback_data="seek_forward_20",
-    style=ButtonStyle.SECONDARY,
-),
+            InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20"),
+            InlineKeyboardButton("sᴛᴀᴛᴜs", callback_data="api_status"),
+            InlineKeyboardButton(text="𝟤𝟢 s + >", callback_data="seek_forward_20")
         ],
         [
             InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
@@ -133,45 +102,16 @@ InlineKeyboardButton(
 def stream_markup(_, chat_id):
     buttons = [
         [
- [
-    InlineKeyboardButton(
-        text="▷",
-        callback_data=f"ADMIN Resume|{chat_id}",
-    ),
-    InlineKeyboardButton(
-        text="II",
-        callback_data=f"ADMIN Pause|{chat_id}",
-    ),
-    InlineKeyboardButton(
-        text="↻",
-        callback_data=f"ADMIN Replay|{chat_id}",
-    ),
-    InlineKeyboardButton(
-        text="‣‣I",
-        callback_data=f"ADMIN Skip|{chat_id}",
-    ),
-    InlineKeyboardButton(
-        text="▢",
-        callback_data=f"ADMIN Stop|{chat_id}",
-    ),
-],
+            InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
+            InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
+            InlineKeyboardButton(text="↻", callback_data=f"ADMIN Replay|{chat_id}"),
+            InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
+            InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
         [
-            InlineKeyboardButton(
-    text="< - 𝟤𝟢 s",
-    callback_data="seek_backward_20",
-    style=ButtonStyle.SECONDARY,
-),
-InlineKeyboardButton(
-    text="sᴛᴀᴛᴜs",
-    callback_data="api_status",
-    style=ButtonStyle.PRIMARY,
-),
-InlineKeyboardButton(
-    text="𝟤𝟢 s + >",
-    callback_data="seek_forward_20",
-    style=ButtonStyle.SECONDARY,
-),
+            InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20"),
+            InlineKeyboardButton("sᴛᴀᴛᴜs", callback_data="api_status"),
+            InlineKeyboardButton(text="𝟤𝟢 s + >", callback_data="seek_forward_20")
         ],
         [
             InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
