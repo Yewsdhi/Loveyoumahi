@@ -122,7 +122,7 @@ def stream_markup(_, chat_id):
                 callback_data=f"forceclose {videoid}|{user_id}",
                 style=ButtonStyle.DANGER,
             ).
-        ]
+        ].
     ]
     return buttons
 
