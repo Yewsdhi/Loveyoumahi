@@ -92,7 +92,11 @@ def stream_markup_timer(_, chat_id, played, dur):
         [
             InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20", style=ButtonStyle.SECONDARY),
             InlineKeyboardButton("sᴛᴀᴛᴜs", callback_data="api_status"),
-            InlineKeyboardButton(text="𝟤𝟢 s + >", callback_data="seek_forward_20". style=ButtonStyle.SECONDARY),
+            InlineKeyboardButton(
+    text="𝟤𝟢 s + >",
+    callback_data="seek_forward_20",
+    style=ButtonStyle.SECONDARY,
+),
         ],
         [
             InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
@@ -113,7 +117,11 @@ def stream_markup(_, chat_id):
         [
             InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20", style=ButtonStyle.SECONDARY),
             InlineKeyboardButton("sᴛᴀᴛᴜs", callback_data="api_status"),
-            InlineKeyboardButton(text="𝟤𝟢 s + >", callback_data="seek_forward_20". style=ButtonStyle.SECONDARY),
+            InlineKeyboardButton(
+    text="𝟤𝟢 s + >",
+    callback_data="seek_forward_20",
+    style=ButtonStyle.SECONDARY,
+),
         ],
         [
             InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
