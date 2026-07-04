@@ -83,16 +83,52 @@ def stream_markup_timer(_, chat_id, played, dur):
             )
         ],
         [
-            InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
-            InlineKeyboardButton(text="↻", callback_data=f"ADMIN Replay|{chat_id}"),
-            InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
-            InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
+            InlineKeyboardButton(
+    text="▷",
+    callback_data=f"ADMIN Resume|{chat_id}",
+    style=ButtonStyle.SUCCESS,   # Green
+)
+
+InlineKeyboardButton(
+    text="II",
+    callback_data=f"ADMIN Pause|{chat_id}",
+    style=ButtonStyle.DANGER,    # Red
+)
+
+InlineKeyboardButton(
+    text="↻",
+    callback_data=f"ADMIN Replay|{chat_id}",
+    style=ButtonStyle.SECONDARY, # Grey
+)
+
+InlineKeyboardButton(
+    text="‣‣I",
+    callback_data=f"ADMIN Skip|{chat_id}",
+    style=ButtonStyle.PRIMARY,   # Blue
+)
+
+InlineKeyboardButton(
+    text="▢",
+    callback_data=f"ADMIN Stop|{chat_id}",
+    style=ButtonStyle.DANGER,    # Red
+)
         ],
         [
-            InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20"),
-            InlineKeyboardButton("sᴛᴀᴛᴜs", callback_data="api_status"),
-            InlineKeyboardButton(text="𝟤𝟢 s + >", callback_data="seek_forward_20")
+            InlineKeyboardButton(
+    text="< - 𝟤𝟢 s",
+    callback_data="seek_backward_20",
+    style=ButtonStyle.SECONDARY,
+),
+InlineKeyboardButton(
+    text="sᴛᴀᴛᴜs",
+    callback_data="api_status",
+    style=ButtonStyle.PRIMARY,
+),
+InlineKeyboardButton(
+    text="𝟤𝟢 s + >",
+    callback_data="seek_forward_20",
+    style=ButtonStyle.SECONDARY,
+),
         ],
         [
             InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
@@ -104,16 +140,52 @@ def stream_markup_timer(_, chat_id, played, dur):
 def stream_markup(_, chat_id):
     buttons = [
         [
-            InlineKeyboardButton(text="▷", callback_data=f"ADMIN Resume|{chat_id}"),
-            InlineKeyboardButton(text="II", callback_data=f"ADMIN Pause|{chat_id}"),
-            InlineKeyboardButton(text="↻", callback_data=f"ADMIN Replay|{chat_id}"),
-            InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
-            InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
+            InlineKeyboardButton(
+    text="▷",
+    callback_data=f"ADMIN Resume|{chat_id}",
+    style=ButtonStyle.SUCCESS,   # Green
+)
+
+InlineKeyboardButton(
+    text="II",
+    callback_data=f"ADMIN Pause|{chat_id}",
+    style=ButtonStyle.DANGER,    # Red
+)
+
+InlineKeyboardButton(
+    text="↻",
+    callback_data=f"ADMIN Replay|{chat_id}",
+    style=ButtonStyle.SECONDARY, # Grey
+)
+
+InlineKeyboardButton(
+    text="‣‣I",
+    callback_data=f"ADMIN Skip|{chat_id}",
+    style=ButtonStyle.PRIMARY,   # Blue
+)
+
+InlineKeyboardButton(
+    text="▢",
+    callback_data=f"ADMIN Stop|{chat_id}",
+    style=ButtonStyle.DANGER,    # Red
+)
         ],
         [
-            InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20"),
-            InlineKeyboardButton("sᴛᴀᴛᴜs", callback_data="api_status"),
-            InlineKeyboardButton(text="𝟤𝟢 s + >", callback_data="seek_forward_20")
+            InlineKeyboardButton(
+    text="< - 𝟤𝟢 s",
+    callback_data="seek_backward_20",
+    style=ButtonStyle.SECONDARY,
+),
+InlineKeyboardButton(
+    text="sᴛᴀᴛᴜs",
+    callback_data="api_status",
+    style=ButtonStyle.PRIMARY,
+),
+InlineKeyboardButton(
+    text="𝟤𝟢 s + >",
+    callback_data="seek_forward_20",
+    style=ButtonStyle.SECONDARY,
+),
         ],
         [
             InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
