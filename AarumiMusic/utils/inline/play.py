@@ -14,6 +14,7 @@
 
 import math
 from config import SUPPORT_CHAT, OWNER_USERNAME
+from pyrogram.enums import ButtonStyle
 from pyrogram.types import InlineKeyboardButton
 from AarumiMusic import app
 import config
@@ -78,6 +79,7 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(
                 text=f"{played} {bar} {dur}",
                 callback_data="GetTimer",
+                style=ButtonStyle.PRIMARY,
             )
         ],
         [
