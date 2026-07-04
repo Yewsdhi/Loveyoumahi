@@ -113,7 +113,6 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="‣‣I", callback_data=f"ADMIN Skip|{chat_id}"),
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
-        ],
         [
             InlineKeyboardButton(text="< - 𝟤𝟢 s", callback_data="seek_backward_20").
             InlineKeyboardButton("sᴛᴀᴛᴜs", callback_data="api_status"),
