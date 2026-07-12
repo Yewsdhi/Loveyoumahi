@@ -58,8 +58,8 @@ UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv("GIT_TOKEN", "")  # Only for private repo
 
 # ✅ Support Links
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/ll_DPZ_WORLDS_lll")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/about_Maahi_XD")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/ishq_ki_duniya_1")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/hot_dpz_stor")
 
 # Vars For API End Pont.
 YTPROXY_URL = getenv("YTPROXY_URL", 'https://tgapi.xbitcode.com') ## xBit Music Endpoint.
