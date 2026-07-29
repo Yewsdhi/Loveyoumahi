@@ -58,7 +58,7 @@ UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv("GIT_TOKEN", "")  # Only for private repo
 
 # ✅ Support Links
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/ishq_ki_duniya_1")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/+tyK_3p6AJ1UyOTQ9")
 SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/hot_dpz_stor")
 
 # Vars For API End Pont.
