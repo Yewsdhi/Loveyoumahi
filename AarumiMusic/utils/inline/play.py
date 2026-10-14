@@ -13,34 +13,47 @@
 # -----------------------------------------------
 
 import math
+import random
 
 from pyrogram.types import InlineKeyboardButton
+
 from AarumiMusic.utils.formatters import time_to_seconds
 
 try:
     from pyrogram.types import KeyboardButtonStyle
 except ImportError:
-    KeyboardButtonStyle = True
+    KeyboardButtonStyle = None
 
 
-def styled_button(text, callback_data, color="primary"):
+def styled_button(text, callback_data, color=None):
+    """Create a randomly colored button if the library supports button styles."""
+
+    colors = ["primary", "success", "danger"]
+    color = color or random.choice(colors)
+
     if KeyboardButtonStyle is None:
         return InlineKeyboardButton(
             text=text,
             callback_data=callback_data,
         )
 
-    style_options = {
+    styles = {
         "primary": KeyboardButtonStyle(bg_primary=True),
         "success": KeyboardButtonStyle(bg_success=True),
         "danger": KeyboardButtonStyle(bg_danger=True),
     }
 
-    return InlineKeyboardButton(
-        text=text,
-        callback_data=callback_data,
-        style=style_options.get(color, style_options["primary"]),
-    )
+    try:
+        return InlineKeyboardButton(
+            text=text,
+            callback_data=callback_data,
+            style=styles[color],
+        )
+    except (TypeError, ValueError):
+        return InlineKeyboardButton(
+            text=text,
+            callback_data=callback_data,
+        )
 
 
 def track_markup(_, videoid, user_id, channel, fplay):
@@ -49,19 +62,16 @@ def track_markup(_, videoid, user_id, channel, fplay):
             styled_button(
                 _["P_B_1"],
                 f"MusicStream {videoid}|{user_id}|a|{channel}|{fplay}",
-                "success",
             ),
             styled_button(
                 _["P_B_2"],
                 f"MusicStream {videoid}|{user_id}|v|{channel}|{fplay}",
-                "primary",
             ),
         ],
         [
             styled_button(
                 _["CLOSE_BUTTON"],
                 f"forceclose {videoid}|{user_id}",
-                "danger",
             ),
         ],
     ]
@@ -104,23 +114,22 @@ def stream_markup_timer(_, chat_id, played, dur):
             styled_button(
                 f"{played} {bar} {dur}",
                 "GetTimer",
-                "primary",
             ),
         ],
         [
-            styled_button("▷", f"ADMIN Resume|{chat_id}", "success"),
-            styled_button("II", f"ADMIN Pause|{chat_id}", "primary"),
-            styled_button("↻", f"ADMIN Replay|{chat_id}", "primary"),
-            styled_button("‣‣I", f"ADMIN Skip|{chat_id}", "danger"),
-            styled_button("▢", f"ADMIN Stop|{chat_id}", "danger"),
+            styled_button("▷", f"ADMIN Resume|{chat_id}"),
+            styled_button("II", f"ADMIN Pause|{chat_id}"),
+            styled_button("↻", f"ADMIN Replay|{chat_id}"),
+            styled_button("‣‣I", f"ADMIN Skip|{chat_id}"),
+            styled_button("▢", f"ADMIN Stop|{chat_id}"),
         ],
         [
-            styled_button("< - 𝟤𝟢 s", "seek_backward_20", "primary"),
-            styled_button("sᴛᴀᴛᴜs", "api_status", "success"),
-            styled_button("𝟤𝟢 s + >", "seek_forward_20", "primary"),
+            styled_button("< - 𝟤𝟢 s", "seek_backward_20"),
+            styled_button("sᴛᴀᴛᴜs", "api_status"),
+            styled_button("𝟤𝟢 s + >", "seek_forward_20"),
         ],
         [
-            styled_button(_["CLOSE_BUTTON"], "close", "danger"),
+            styled_button(_["CLOSE_BUTTON"], "close"),
         ],
     ]
 
@@ -128,19 +137,19 @@ def stream_markup_timer(_, chat_id, played, dur):
 def stream_markup(_, chat_id):
     return [
         [
-            styled_button("▷", f"ADMIN Resume|{chat_id}", "success"),
-            styled_button("II", f"ADMIN Pause|{chat_id}", "primary"),
-            styled_button("↻", f"ADMIN Replay|{chat_id}", "primary"),
-            styled_button("‣‣I", f"ADMIN Skip|{chat_id}", "danger"),
-            styled_button("▢", f"ADMIN Stop|{chat_id}", "danger"),
+            styled_button("▷", f"ADMIN Resume|{chat_id}"),
+            styled_button("II", f"ADMIN Pause|{chat_id}"),
+            styled_button("↻", f"ADMIN Replay|{chat_id}"),
+            styled_button("‣‣I", f"ADMIN Skip|{chat_id}"),
+            styled_button("▢", f"ADMIN Stop|{chat_id}"),
         ],
         [
-            styled_button("< - 𝟤𝟢 s", "seek_backward_20", "primary"),
-            styled_button("sᴛᴀᴛᴜs", "api_status", "success"),
-            styled_button("𝟤𝟢 s + >", "seek_forward_20", "primary"),
+            styled_button("< - 𝟤𝟢 s", "seek_backward_20"),
+            styled_button("sᴛᴀᴛᴜs", "api_status"),
+            styled_button("𝟤𝟢 s + >", "seek_forward_20"),
         ],
         [
-            styled_button(_["CLOSE_BUTTON"], "close", "danger"),
+            styled_button(_["CLOSE_BUTTON"], "close"),
         ],
     ]
 
@@ -151,19 +160,16 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
             styled_button(
                 _["P_B_1"],
                 f"AarumiPlaylists {videoid}|{user_id}|{ptype}|a|{channel}|{fplay}",
-                "success",
             ),
             styled_button(
                 _["P_B_2"],
                 f"AarumiPlaylists {videoid}|{user_id}|{ptype}|v|{channel}|{fplay}",
-                "primary",
             ),
         ],
         [
             styled_button(
                 _["CLOSE_BUTTON"],
                 f"forceclose {videoid}|{user_id}",
-                "danger",
             ),
         ],
     ]
@@ -175,14 +181,12 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
             styled_button(
                 _["P_B_3"],
                 f"LiveStream {videoid}|{user_id}|{mode}|{channel}|{fplay}",
-                "success",
             ),
         ],
         [
             styled_button(
                 _["CLOSE_BUTTON"],
                 f"forceclose {videoid}|{user_id}",
-                "danger",
             ),
         ],
     ]
@@ -196,29 +200,24 @@ def slider_markup(_, videoid, user_id, query, query_type, channel, fplay):
             styled_button(
                 _["P_B_1"],
                 f"MusicStream {videoid}|{user_id}|a|{channel}|{fplay}",
-                "success",
             ),
             styled_button(
                 _["P_B_2"],
                 f"MusicStream {videoid}|{user_id}|v|{channel}|{fplay}",
-                "primary",
             ),
         ],
         [
             styled_button(
                 "◁",
                 f"slider B|{query_type}|{query}|{user_id}|{channel}|{fplay}",
-                "primary",
             ),
             styled_button(
                 _["CLOSE_BUTTON"],
                 f"forceclose {query}|{user_id}",
-                "danger",
             ),
             styled_button(
                 "▷",
                 f"slider F|{query_type}|{query}|{user_id}|{channel}|{fplay}",
-                "primary",
             ),
         ],
     ]
