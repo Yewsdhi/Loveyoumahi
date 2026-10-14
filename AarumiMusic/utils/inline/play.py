@@ -1,6 +1,10 @@
 # -----------------------------------------------
-# AarumiMusic Project
-# Colored Inline Buttons
+# 🔸 AarumiMusic Project
+# 🔹 Developed & Maintained by: Aarumi Bots
+# 🔗 https://github.com/itsAarumi
+# 📅 Copyright © 2025 – All Rights Reserved
+#
+# Premium Inline Button Style
 # -----------------------------------------------
 
 import math
@@ -11,8 +15,8 @@ from AarumiMusic import app
 import config
 from AarumiMusic.utils.formatters import time_to_seconds
 
-# Requires a Telegram Bot API/library version
-# that supports InlineKeyboardButton.style.
+
+# Button style support is library-dependent.
 try:
     from pyrogram.types import ButtonStyle
 except ImportError:
@@ -20,7 +24,7 @@ except ImportError:
 
 
 def make_button(text, callback_data, color="PRIMARY"):
-    """Create a colored inline button when supported."""
+    """Create a styled button when supported."""
     if ButtonStyle is None:
         return InlineKeyboardButton(
             text=text,
@@ -34,23 +38,24 @@ def make_button(text, callback_data, color="PRIMARY"):
     )
 
 
+# Audio / Video buttons
 def track_markup(_, videoid, user_id, channel, fplay):
     return [
         [
             make_button(
-                _["P_B_1"],
+                "🎧 PLAY AUDIO",
                 f"MusicStream {videoid}|{user_id}|a|{channel}|{fplay}",
                 "SUCCESS",
             ),
             make_button(
-                _["P_B_2"],
+                "📺 PLAY VIDEO",
                 f"MusicStream {videoid}|{user_id}|v|{channel}|{fplay}",
                 "PRIMARY",
             ),
         ],
         [
             make_button(
-                _["CLOSE_BUTTON"],
+                "❌ CLOSE",
                 f"forceclose {videoid}|{user_id}",
                 "DANGER",
             )
@@ -58,12 +63,14 @@ def track_markup(_, videoid, user_id, channel, fplay):
     ]
 
 
+# Progress bar
 def _progress_bar(percentage):
     percentage = max(0, min(100, percentage))
-    position = min(9, int(percentage // 10))
-    return "━" * position + "●" + "━" * (9 - position)
+    position = min(9, math.floor(percentage / 10))
+    return "━" * position + "🔴" + "━" * (9 - position)
 
 
+# Player controls
 def _control_buttons(chat_id):
     return [
         make_button("▶️", f"ADMIN Resume|{chat_id}", "SUCCESS"),
@@ -74,6 +81,7 @@ def _control_buttons(chat_id):
     ]
 
 
+# Seek controls
 def _seek_buttons():
     return [
         make_button("⏪ 20s", "seek_backward_20", "PRIMARY"),
@@ -82,13 +90,15 @@ def _seek_buttons():
     ]
 
 
+# Player with timer
 def stream_markup_timer(_, chat_id, played, dur):
     played_sec = time_to_seconds(played)
     duration_sec = time_to_seconds(dur)
 
     percentage = (
         (played_sec / duration_sec) * 100
-        if duration_sec > 0 else 0
+        if duration_sec > 0
+        else 0
     )
 
     bar = _progress_bar(percentage)
@@ -96,7 +106,7 @@ def stream_markup_timer(_, chat_id, played, dur):
     return [
         [
             InlineKeyboardButton(
-                text=f"🎧 {played} {bar} {dur}",
+                text=f"🎵 {played} {bar} {dur}",
                 callback_data="GetTimer",
             )
         ],
@@ -112,6 +122,7 @@ def stream_markup_timer(_, chat_id, played, dur):
     ]
 
 
+# Player without timer
 def stream_markup(_, chat_id):
     return [
         _control_buttons(chat_id),
@@ -126,16 +137,17 @@ def stream_markup(_, chat_id):
     ]
 
 
+# Playlist buttons
 def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
     return [
         [
             make_button(
-                _["P_B_1"],
+                "🎧 PLAY AUDIO",
                 f"AarumiPlaylists {videoid}|{user_id}|{ptype}|a|{channel}|{fplay}",
                 "SUCCESS",
             ),
             make_button(
-                _["P_B_2"],
+                "📺 PLAY VIDEO",
                 f"AarumiPlaylists {videoid}|{user_id}|{ptype}|v|{channel}|{fplay}",
                 "PRIMARY",
             ),
@@ -150,11 +162,12 @@ def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
     ]
 
 
+# Livestream buttons
 def livestream_markup(_, videoid, user_id, mode, channel, fplay):
     return [
         [
             make_button(
-                _["P_B_3"],
+                "🔴 START LIVE STREAM",
                 f"LiveStream {videoid}|{user_id}|{mode}|{channel}|{fplay}",
                 "SUCCESS",
             )
@@ -169,25 +182,26 @@ def livestream_markup(_, videoid, user_id, mode, channel, fplay):
     ]
 
 
+# Song slider buttons
 def slider_markup(_, videoid, user_id, query, query_type, channel, fplay):
     query = str(query)[:20]
 
     return [
         [
             make_button(
-                _["P_B_1"],
+                "🎧 PLAY AUDIO",
                 f"MusicStream {videoid}|{user_id}|a|{channel}|{fplay}",
                 "SUCCESS",
             ),
             make_button(
-                _["P_B_2"],
+                "📺 PLAY VIDEO",
                 f"MusicStream {videoid}|{user_id}|v|{channel}|{fplay}",
                 "PRIMARY",
             ),
         ],
         [
             make_button(
-                "◁",
+                "⬅️ PREVIOUS",
                 f"slider B|{query_type}|{query}|{user_id}|{channel}|{fplay}",
                 "PRIMARY",
             ),
@@ -197,9 +211,9 @@ def slider_markup(_, videoid, user_id, query, query_type, channel, fplay):
                 "DANGER",
             ),
             make_button(
-                "▷",
+                "NEXT ➡️",
                 f"slider F|{query_type}|{query}|{user_id}|{channel}|{fplay}",
-                "PRIMARY",
+                "SUCCESS",
             ),
         ],
     ]
