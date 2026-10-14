@@ -20,7 +20,7 @@ from AarumiMusic.utils.formatters import time_to_seconds
 try:
     from pyrogram.types import KeyboardButtonStyle
 except ImportError:
-    KeyboardButtonStyle = None
+    KeyboardButtonStyle = True
 
 
 def styled_button(text, callback_data, color="primary"):
